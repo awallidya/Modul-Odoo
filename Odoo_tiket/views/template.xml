@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="tiket_backend" name="iframe_dashboard_assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/tiket/static/js/dashboard.js"/>
+        </xpath>
+    </template>
+</odoo>

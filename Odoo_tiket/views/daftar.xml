@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_daftar_pesawat_tree" model="ir.ui.view">
+        <field name="name">daftar.pesawat.tree</field>
+        <field name="model">daftar.pesawat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="kota_keberangkatan"/>
+                <field name="kota_tujuan"/>
+                <field name="kelas_penerbangan"/>
+                <field name="harga"/>
+            </tree>
+        </field>          
+    </record>
+
+    <record id="view_daftar_pesawat_form" model="ir.ui.view">
+        <field name="name">daftar.pesawat.form</field>
+        <field name="model">daftar.pesawat</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group> 
+                            <field name="kota_keberangkatan"/>
+                            <field name="kota_tujuan"/>
+                            <field name="kelas_penerbangan"/>
+                            <field name="harga"/>
+                            <!-- <field name="kode_pesawat"/>
+                        </group>
+                        <group> 
+                            <field name="note_pesawat"/> -->
+                        </group> 
+                    </group> 
+                </sheet>
+            </form> 
+        </field>          
+    </record>
+
+    <!-- action -->
+    <record id="daftar_pesawat_id" model="ir.actions.act_window">
+        <field name="name">daftar pesawat</field>
+        <field name="res_model">daftar.pesawat</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id="daftar_pesawat" 
+        name="Daftar Pesawat" 
+        sequence="10" 
+        parent="kode_pesawat_root" 
+        action="daftar_pesawat_id"/>
+</odoo> 

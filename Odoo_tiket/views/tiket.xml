@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="tiket_pesawat_kanban" model="ir.ui.view">  
+        <field name="name">tiket.pesawat.kanban</field>
+        <field name="model">tiket.pesawat</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="tanggal"/>
+                <field name="age"/>  
+                <field name="gender"/>
+                <!-- <field name="maskapai"/> -->
+                <field name="kota_keberangkatan"/>
+                <field name="kota_tujuan"/>
+                <field name="kursi"/>
+                <field name="note"/>
+                 <field name="image"/>  
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img class ="o_kanban_image_inner_pic" 
+                                    t-att-src="kanban_image('tiket.pesawat', 'image', record.id.raw_value)"/> -->
+                            </div> 
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        <field name="reference"/>
+                                    </li>
+                                    <li>
+                                        Tanggal : <field name="tanggal"/>
+                                    </li>
+                                    <li>
+                                        Nama : <field name="name"/>
+                                    </li>
+                                    <!-- <li>
+                                        Maskapai: <field name="maskapai"/>
+                                    </li>                                  -->
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="tiket_pesawat_tree" model="ir.ui.view">  
+        <field name="name">tiket.pesawat.tree</field>
+        <field name="model">tiket.pesawat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>  
+                <field name="gender"/>               
+                <!-- <field name="maskapai"/> -->
+                <field name="kota_keberangkatan"/>
+                <field name="kota_tujuan"/>
+                <field name="kelas_penerbangan_id"/>
+                <field name="tanggal"/>
+                <field name="harga"/>
+                <field name="kursi"/>                
+                <field name="note"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tiket_pesawat_form" model="ir.ui.view"> 
+        <field name="name">tiket.pesawat.form</field>
+        <field name="model">tiket.pesawat</field>
+        <field name="arch" type="xml">
+            <form> 
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1}"
+                        statusbar_visible="draft,done,confirm"/>
+                </header>
+                    <!-- <div class="oe_tittle">
+                        <h1>
+                            <field name="reference" readonly="1"/>
+                        </h1>
+                    </div> -->
+                <sheet>
+                    <!-- <field name="image" widget="image" class="oe_avatar"/> -->
+                    <div class="alert alert-info text-center o_form_header" role="alert">
+                        <a class="close" data-dismiss="alert" href="#">x</a>
+                        <div>
+                            <strong>Save your ticket!!!</strong>
+                        </div>
+                        <div>Enjoy your holiday <field name="name" readonly="1"/> </div>
+                    </div>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <div class="oe_tittle">
+                        <h1>
+                            <field name="reference" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <!-- <field name="id_tiket"/> -->
+                            <field name="tanggal"/>
+                            <!-- <field name="kode"/> -->
+                            <!-- <field name="maskapai"/> -->
+                        </group>
+                        <group>
+                            <field name="kota_keberangkatan"/>
+                            <field name="kota_tujuan"/>                        
+                            <field name="kelas_penerbangan_id"/>
+                            <field name="harga"/>
+                            <field name="kursi"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tiket_pesawat_search" model="ir.ui.view">
+        <field name="name">tiket.pesawat.search</field>
+        <field name="model">tiket.pesawat</field>
+        <field name="arch" type="xml">
+            <search string="pesawat">
+                <field name="name"/>
+                <field name="note"/>
+                <separator/>
+                <filter string="Laki-laki" name="male" domain="[('gender', '=', 'male')]"/>
+                <filter string="Perempuan" name="female" domain="[('gender', '=', 'female')]"/>
+                <filter string="Lainnya" name="other" domain="[('gender', '=', 'other')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Gender" name="gender" context="{'group_by':'gender'}"/>
+                    <filter string="Nama Penumpang" name="tiket_pesawat_name" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="tiket_action" model="ir.actions.act_window"> 
+        <field name="name">tiket</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tiket.pesawat</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_noncontent_smiling_face">
+                Let's buy a ticket!
+            </p>
+        </field>
+    </record>
+
+    <menuitem 
+        id="kode_pesawat_root"
+        name="kode_pesawat"
+        sequence="10"/>
+
+    <menuitem
+        id="tiket_pesawat_root"
+        name="Form Pesawat"
+        parent="kode_pesawat_root"
+        sequence="10"/>
+
+    <menuitem
+        id="harga_pesawat"
+        name="harga_pesawat"
+        parent="tiket_pesawat_root"
+        action="tiket_action" 
+        sequence="10"/> 
+
+</odoo>

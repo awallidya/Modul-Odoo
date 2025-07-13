@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <report
+        id="report_pesawat_card"
+        string="Tiket Card"
+        model="tiket.pesawat"
+        report_type="qweb-pdf"
+        name="tiket.report_pesawat"
+        file="tiket.report_pesawat"/>
+
+    
+</odoo>

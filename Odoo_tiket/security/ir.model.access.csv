@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acces_tiket_pesawat,acces.tiket.pesawat,model_tiket_pesawat,,1,1,1,1
+acces_daftar_pesawat,acces.daftar.pesawat,model_daftar_pesawat,,1,1,1,1
+acces_dashboard_pesawat,acces.dashboard.pesawat,model_dashboard_pesawat,,1,1,1,1

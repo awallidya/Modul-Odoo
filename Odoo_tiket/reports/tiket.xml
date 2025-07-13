@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_pesawat">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="col-12 text-center">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 25%; text-align: left; padding-right: 20px;">
+                                    <p>
+                                        <span t-field="doc.note"/>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <p> <span t-field="doc.reference"/></p>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: center;">
+                                    <h2 style="font-weight: bold; font-size: 30px; margin-top: 20px; margin-bottom: 60px;">Enjoy your holiday !!</h2>
+                                    <!-- <img t-att-src="'data:image/jpeg;base64,' + doc.image.decode('utf-8')" style="max-width: 200px; margin-top: 20px;" /> -->
+                                    <h2 style="font-weight: bold; font-size: 50px; margin-top: 13px; margin-bottom: 20px;"> Tiket </h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%; text-align: left; padding-right: 20px;">
+                                    <p><strong>Nama:</strong> <span t-field="doc.name"/></p>
+                                    <!-- <p><strong>gender:</strong> <span t-field="doc.gender"/></p> -->
+                                    <!-- <p><strong>Tanggal:</strong> <span t-field="doc.tanggal"/></p> -->
+                                    <p><strong>Kota Keberangkatan:</strong> <span t-field="doc.kota_keberangkatan"/></p>
+                                    <p><strong>Kota Tujuan:</strong> <span t-field="doc.kota_tujuan"/></p>
+                                    <!-- <p><strong></strong> <span t-field="doc.reference"/></p> -->
+                                    <!-- <p><strong>Kota_Keberangkatan:</strong> <span t-field="doc.kota_keberangkatan"/></p> -->
+                                </td>
+                                <td style="width: 25%; text-align: right; padding-right: 20px;">
+                                    <!-- <p><strong>Tujuan_Kota:</strong> <span t-field="doc.tujuan_kota"/></p> -->
+                                    <p><strong>Tanggal:</strong> <span t-field="doc.tanggal"/></p>          
+                                    <p><strong>Maskapai:</strong> <span t-field="doc.maskapai"/></p>
+                                    <p><strong>Kelas Penerbangan:</strong> <span t-field="doc.kelas_penerbangan"/></p>
+                                    <!-- <p><strong>Catatan:</strong> <span t-field="doc.note"/></p> -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: center;">
+                                    <p><strong>PERHATIKAN KETENTUAN DIBAWAH INI</strong></p>
+                                    <div style="border: 1px solid #000; padding: 10px; margin: 10px 0; text-align: left;">
+                                        <ul>
+                                            <li>Periksa Kembali Data Anda.</li>
+                                            <li>Print dan Simpan Dokumen Ini.</li>
+                                            <li>Tunjukkan Kepada Petugas Maskapai.</li>
+                                            <li>Patuhi Peraturan yang Ada Di Maskapai.</li>
+                                            <li>Ikuti Arahan yang Diberikan Oleh Petugas Maskpai.</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: center;">
+                                    <h2 style="font-weight: bold; font-size: 15px; margin-top: 30px; margin-bottom: 60px;">Demi Keselamatan Bersama Ikuti Peraturan Yang Telah Ditetapkan!!!</h2>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t> 
+            </t>
+        </t> 
+    </template>
+
+</odoo>
